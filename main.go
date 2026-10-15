@@ -1,22 +1,27 @@
 package main
 
 import (
- "fmt"
- "os"
+	"fmt"
+	"os"
+	"strings"
 )
 
 func main() {
-if len(os.Args) != 3 {
-  return 
- }
+	if len(os.Args) != 3 {
+		return
+	}
 
- inputFile := os.Args[1]
+	inputFile := os.Args[1]
 
- content, err := os.ReadFile(inputFile)
- if err != nil {
-  fmt.Println("Erreur lors de la lecture du fichier :", err)
-  return
- }
+	content, err := os.ReadFile(inputFile)
+	if err != nil {
+		fmt.Println("Erreur lors de la lecture du fichier :", err)
+		return
+	}
 
- os.WriteFile(os.Args[2], content, 0644)
+	words := strings.Fields(string(content))
+
+	result := strings.Join(words, " ")
+
+	os.WriteFile(os.Args[2], []byte(result), 0644)
 }
