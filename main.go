@@ -21,7 +21,5 @@ func main() {
 
 	words := strings.Fields(string(content))
 
-	result := strings.Join(words, " ")
-
-	os.WriteFile(os.Args[2], []byte(result), 0644)
+	os.WriteFile(os.Args[2], content, 0644)
 }
