@@ -22,7 +22,9 @@ func main() {
 		os.Exit(1)
 	}
 
-	err = os.WriteFile(outputFile, content, 0644)
+	result := process(string(content))
+
+	err = os.WriteFile(outputFile, []byte(result), 0644)
 	if err != nil {
 		fmt.Println("Erreur lors de l'écriture du fichier :", err)
 		os.Exit(1)
