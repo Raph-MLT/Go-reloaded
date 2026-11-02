@@ -15,8 +15,10 @@ func process(text string) string {
 func processLine(line string) string {
 	words := splitWords(line)
 	words = applyMarkers(words)
+	words = fixPunctuation(words)
 	return strings.Join(words, " ")
 }
+
 func splitWords(line string) []string {
 	line = strings.ReplaceAll(line, "(up, ", "(up,")
 	line = strings.ReplaceAll(line, "(low, ", "(low,")
