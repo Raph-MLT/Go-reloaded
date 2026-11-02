@@ -16,6 +16,7 @@ func processLine(line string) string {
 	words := splitWords(line)
 	words = applyMarkers(words)
 	words = fixPunctuation(words)
+	words = fixQuotes(words)
 	return strings.Join(words, " ")
 }
 
