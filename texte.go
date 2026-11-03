@@ -17,6 +17,7 @@ func processLine(line string) string {
 	words = applyMarkers(words)
 	words = fixPunctuation(words)
 	words = fixQuotes(words)
+	words = fixArticles(words)
 	return strings.Join(words, " ")
 }
 
